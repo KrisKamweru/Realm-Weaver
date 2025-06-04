@@ -43,6 +43,12 @@
           },
           "configurations": {
             "production": {
+              "server": "src/main.server.ts",
+              "outputMode": "server",
+              "ssr": {
+                "entry": "src/server.ts",
+                "experimentalPlatform": "neutral"
+              },
               "budgets": [
                 {
                   "type": "initial",
@@ -61,6 +67,17 @@
               "optimization": false,
               "extractLicenses": false,
               "sourceMap": true
+            },
+            "development-ssr": {
+              "server": "src/main.server.ts",
+              "outputMode": "server",
+              "ssr": {
+                "entry": "src/server.ts",
+                "experimentalPlatform": "neutral"
+              },
+              "optimization": false,
+              "extractLicenses": false,
+              "sourceMap": true
             }
           },
           "defaultConfiguration": "production"
@@ -73,6 +90,9 @@
             },
             "development": {
               "buildTarget": "realm-weaver:build:development"
+            },
+            "development-ssr": {
+              "buildTarget": "realm-weaver:build:development-ssr"
             }
           },
           "defaultConfiguration": "development"
